@@ -11,7 +11,7 @@ Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
 # Source0-md5:	5be418d49cb105ccb7b96dfb81520bfc
 URL:		http://www.mems-exchange.org/software/durus/
-BuildRequires:	python-devel >= 2.3
+BuildRequires:	python-devel >= 1:2.3
 Requires:	python >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

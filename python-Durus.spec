@@ -5,7 +5,7 @@ Summary:	Durus - a persistent object system for applications written in the Pyth
 Summary(pl):	Durus - system przechowywania obiektów aplikacji napisanych w jêzyku programowania Python
 Name:		python-%{module}
 Version:	1.2
-Release:	1
+Release:	2
 License:	CNRI
 Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
@@ -58,13 +58,14 @@ python setup.py build_ext
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir},%{_mandir}/man1}
 
 python setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--install-lib=%{py_sitedir} \
 	--optimize=2
 
+cp -a doc/durus.1 $RPM_BUILD_ROOT%{_mandir}/man1
 find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
 %clean
@@ -72,9 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc
+%doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc/{FAQ.txt,FAQ.html,default.css}
 %{py_sitedir}/durus
 
 %files -n Durus-utils
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/durus
+%{_mandir}/man1

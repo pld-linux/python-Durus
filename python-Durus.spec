@@ -1,5 +1,4 @@
 
-%include	/usr/lib/rpm/macros.python
 %define 	module	Durus
 
 Summary:	Durus - a persistent object system for applications written in the Python programming language

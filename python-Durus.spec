@@ -12,7 +12,7 @@ Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.
 # Source0-md5:	93dd42aa838c9ca307b0d1429c271224
 URL:		http://www.mems-exchange.org/software/durus/
 BuildRequires:	python-devel >= 1:2.3
-BuildRequires:  python-modules
+BuildRequires:	python-modules
 Requires:	python >= 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -4,12 +4,12 @@
 Summary:	Durus - a persistent object system for applications written in the Python programming language
 Summary(pl):	Durus - system przechowywania obiektów aplikacji napisanych w jêzyku programowania Python
 Name:		python-%{module}
-Version:	1.1
-Release:	2
+Version:	1.2
+Release:	1
 License:	CNRI
 Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
-# Source0-md5:	6b829032403eecd4a3f0e5107a755c21
+# Source0-md5:	5be418d49cb105ccb7b96dfb81520bfc
 URL:		http://www.mems-exchange.org/software/durus/
 BuildRequires:	python-devel >= 2.3
 Requires:	python >= 2.3
@@ -33,29 +33,20 @@ transakcyjnych operacji na obiektach. Durus najlepiej sprawdza siê
 przy bazach, które nie zawieraj± wiêcej ni¿ milion obiektów z
 relatywnie stabilnym stanem.
 
-%package -n Durus-server
-Summary:	Server program for Durus object system
-Summary(pl):	Program serwera systemu Durus
+%package -n Durus-utils
+Summary:	Utility programs for Durus system
+Summary(pl):	Programy narzêdziowe systemu Durus
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 
-%description -n Durus-server
-This package contains server program for Durus object system.
+%description -n Durus-utils
+This package contains utility programs for Durus system. It contains
+simple Python script with both client and server functionality.
 
-%description -n Durus-server -l pl
-Program serwera systemu Durus.
-
-%package -n Durus-client
-Summary:	Client program for Durus object system
-Summary(pl):	Program klienta systemu Durus
-Group:		Applications/Databases
-Requires:	%{name} = %{version}-%{release}
-
-%description -n Durus-client
-This package contains client program for Durus object system.
-
-%description -n Durus-client -l pl
-Program klienta systemu Durus.
+%description -n Durus-utils -l pl
+Programy nardzêdziowe systemu Durus. Pakiet ten zawiera prosty skrypt
+udostêpniaj±cy funkcjonalno¶æ zarówno klienta jaki i serwera systemu
+Durus.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -74,9 +65,6 @@ python setup.py install \
 	--install-lib=%{py_sitedir} \
 	--optimize=2
 
-# rename the client program to omit possible conflicts with name
-mv $RPM_BUILD_ROOT%{_bindir}/client.py $RPM_BUILD_ROOT%{_bindir}/durus-client.py
-
 find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
 
 %clean
@@ -87,10 +75,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc
 %{py_sitedir}/durus
 
-%files -n Durus-server
+%files -n Durus-utils
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/run_durus.py
-
-%files -n Durus-client
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/durus-client.py
+%attr(755,root,root) %{_bindir}/durus

@@ -2,7 +2,7 @@
 %define 	module	Durus
 
 Summary:	Durus - a persistent object system for applications written in the Python programming language
-Summary(pl):	Durus - system przechowywania obiektów aplikacji napisanych w jêzyku programowania Python
+Summary(pl.UTF-8):   Durus - system przechowywania obiektÃ³w aplikacji napisanych w jÄ™zyku programowania Python
 Name:		python-%{module}
 Version:	1.4
 Release:	1
@@ -25,18 +25,18 @@ abort() methods so that changes are transactional. Durus is best
 suited to collections of less than a million instances with relatively
 stable state.
 
-%description -l pl
-Durus jest system umo¿liwiaj±cym u¿ywanie i zarz±dzanie w ³atwy sposób
-kolekcj± obiektów u¿ywanych przez jeden lub wiêcej procesów. Dostêp do
-obiektów i ich modyfikacje zarz±dzane s± przy pomocy przechowywanych
-stale w pamiêci obiektów po³±czeñ umo¿liwiaj±cych wykonywanie
-transakcyjnych operacji na obiektach. Durus najlepiej sprawdza siê
-przy bazach, które nie zawieraj± wiêcej ni¿ milion obiektów z
+%description -l pl.UTF-8
+Durus jest system umoÅ¼liwiajÄ…cym uÅ¼ywanie i zarzÄ…dzanie w Å‚atwy sposÃ³b
+kolekcjÄ… obiektÃ³w uÅ¼ywanych przez jeden lub wiÄ™cej procesÃ³w. DostÄ™p do
+obiektÃ³w i ich modyfikacje zarzÄ…dzane sÄ… przy pomocy przechowywanych
+stale w pamiÄ™ci obiektÃ³w poÅ‚Ä…czeÅ„ umoÅ¼liwiajÄ…cych wykonywanie
+transakcyjnych operacji na obiektach. Durus najlepiej sprawdza siÄ™
+przy bazach, ktÃ³re nie zawierajÄ… wiÄ™cej niÅ¼ milion obiektÃ³w z
 relatywnie stabilnym stanem.
 
 %package -n Durus-utils
 Summary:	Utility programs for Durus system
-Summary(pl):	Programy narzêdziowe systemu Durus
+Summary(pl.UTF-8):   Programy narzÄ™dziowe systemu Durus
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	Durus-client
@@ -46,9 +46,9 @@ Obsoletes:	Durus-server
 This package contains utility programs for Durus system. It contains
 simple Python script with both client and server functionality.
 
-%description -n Durus-utils -l pl
-Programy nardzêdziowe systemu Durus. Pakiet ten zawiera prosty skrypt
-udostêpniaj±cy funkcjonalno¶æ zarówno klienta jaki i serwera systemu
+%description -n Durus-utils -l pl.UTF-8
+Programy nardzÄ™dziowe systemu Durus. Pakiet ten zawiera prosty skrypt
+udostÄ™pniajÄ…cy funkcjonalnoÅ›Ä‡ zarÃ³wno klienta jaki i serwera systemu
 Durus.
 
 %prep

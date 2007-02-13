@@ -2,7 +2,7 @@
 %define 	module	Durus
 
 Summary:	Durus - a persistent object system for applications written in the Python programming language
-Summary(pl.UTF-8):   Durus - system przechowywania obiektów aplikacji napisanych w języku programowania Python
+Summary(pl.UTF-8):	Durus - system przechowywania obiektów aplikacji napisanych w języku programowania Python
 Name:		python-%{module}
 Version:	1.4
 Release:	1
@@ -36,7 +36,7 @@ relatywnie stabilnym stanem.
 
 %package -n Durus-utils
 Summary:	Utility programs for Durus system
-Summary(pl.UTF-8):   Programy narzędziowe systemu Durus
+Summary(pl.UTF-8):	Programy narzędziowe systemu Durus
 Group:		Applications/Databases
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	Durus-client

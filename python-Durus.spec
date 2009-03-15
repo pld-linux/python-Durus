@@ -4,12 +4,12 @@
 Summary:	Durus - a persistent object system for applications written in the Python programming language
 Summary(pl.UTF-8):	Durus - system przechowywania obiektów aplikacji napisanych w języku programowania Python
 Name:		python-%{module}
-Version:	1.4
-Release:	2
+Version:	3.8
+Release:	1
 License:	CNRI
 Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
-# Source0-md5:	e79aed3bfa1dea3020507082f147600b
+# Source0-md5:	75018ffc6682d09e5e0cdad065efa00a
 URL:		http://www.mems-exchange.org/software/durus/
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	python-modules
@@ -55,31 +55,28 @@ Durus.
 %setup -q -n %{module}-%{version}
 
 %build
-CFLAGS="%{rpmcflags}"
-export CFLAGS
-python setup.py build_ext
+export CFLAGS="%{rpmcflags}"
+%{__python} setup.py build_ext
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir}}
 
-python setup.py install \
+%{__python} setup.py install \
 	--root=$RPM_BUILD_ROOT \
 	--install-lib=%{py_sitedir} \
 	--optimize=2
 
-cp -a doc/durus.1 $RPM_BUILD_ROOT%{_mandir}/man1
-find $RPM_BUILD_ROOT%{py_sitedir} -name \*.py -exec rm {} \;
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc/{FAQ.txt,FAQ.html,default.css}
+%doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc/FAQ.txt
 %{py_sitedir}/durus
 
 %files -n Durus-utils
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/durus
-%{_mandir}/man1/*

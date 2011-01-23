@@ -13,6 +13,7 @@ Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.
 URL:		http://www.mems-exchange.org/software/durus/
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

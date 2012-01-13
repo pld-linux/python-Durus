@@ -4,12 +4,12 @@
 Summary:	Durus - a persistent object system for applications written in the Python programming language
 Summary(pl.UTF-8):	Durus - system przechowywania obiektów aplikacji napisanych w języku programowania Python
 Name:		python-%{module}
-Version:	3.8
-Release:	2
+Version:	3.9
+Release:	1
 License:	CNRI
 Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
-# Source0-md5:	75018ffc6682d09e5e0cdad065efa00a
+# Source0-md5:	a432b65bc9fdc24f80f768022d9a3c04
 URL:		http://www.mems-exchange.org/software/durus/
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	python-modules
@@ -58,15 +58,16 @@ Durus.
 %build
 export CFLAGS="%{rpmcflags}"
 %{__python} setup.py build_ext
+%{?with_tests:%{__python} setup.py test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir}}
 
 %{__python} setup.py install \
-	--root=$RPM_BUILD_ROOT \
 	--install-lib=%{py_sitedir} \
-	--optimize=2
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
 
 %py_postclean
 
@@ -76,7 +77,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc/FAQ.txt
-%{py_sitedir}/durus
+%{py_sitedir}/durus/*.py[co]
+%{py_sitedir}/durus/*.so
+%if "%{py_ver}" > "2.4"
+%{py_sitedir}/Durus-*.egg-info
+%endif
 
 %files -n Durus-utils
 %defattr(644,root,root,755)

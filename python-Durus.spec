@@ -5,7 +5,7 @@ Summary:	Durus - a persistent object system for applications written in the Pyth
 Summary(pl.UTF-8):	Durus - system przechowywania obiektów aplikacji napisanych w języku programowania Python
 Name:		python-%{module}
 Version:	3.9
-Release:	1
+Release:	2
 License:	CNRI
 Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
@@ -77,6 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ACKS.txt CHANGES.txt LICENSE.txt README.txt doc/FAQ.txt
+%dir %{py_sitedir}/durus
 %{py_sitedir}/durus/*.py[co]
 %{py_sitedir}/durus/*.so
 %if "%{py_ver}" > "2.4"

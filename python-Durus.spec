@@ -64,7 +64,7 @@ export CFLAGS="%{rpmcflags}"
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir}}
 
-%{__python} setup.py install \
+%py_install \
 	--install-lib=%{py_sitedir} \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT

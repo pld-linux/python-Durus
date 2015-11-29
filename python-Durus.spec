@@ -11,6 +11,7 @@ Group:		Libraries/Python
 Source0:	http://www.mems-exchange.org/software/files/durus/%{module}-%{version}.tar.gz
 # Source0-md5:	a432b65bc9fdc24f80f768022d9a3c04
 URL:		http://www.mems-exchange.org/software/durus/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
